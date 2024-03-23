@@ -46,6 +46,18 @@ func ShowStakeholder(c *fiber.Ctx) error {
 	})
 }
 
+func GetActiveStakeholder(c *fiber.Ctx) error {
+	var data []models.Stakeholder
+	database.DB.Where("is_active = ?", true).Find(&data)
+
+	//return c.JSON(data)
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"code":    fiber.StatusOK,
+		"message": "Data ditemukan",
+		"data":    data,
+	})
+}
+
 func CreateStakeholder(c *fiber.Ctx) error {
 
 	var data models.Stakeholder

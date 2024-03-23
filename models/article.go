@@ -10,6 +10,6 @@ type Article struct {
 	Is_active   string    `gorm:"integer" json:"is_active"`
 	CreatedAt   time.Time `json:"createdAt"`
 	UpdatedAt   time.Time `json:"updatedAt"`
-	CreatedBy   time.Time `json:"createdBy"`
-	UpdatedBy   time.Time `json:"updatedBy"`
+	CreatedBy   int       `json:"createdBy"`
+	UpdatedBy   int       `json:"updatedBy"`
 }
